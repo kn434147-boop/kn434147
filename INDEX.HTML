@@ -1,317 +1,100 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>لعبة حسين حيدر 🎮</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كاميرا الويب</title>
 
 <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
 
-body{
-    margin:0;
-    overflow:hidden;
-    font-family:Arial;
-    background:linear-gradient(135deg,#141e30,#243b55);
-    height:100vh;
-    color:white;
-    text-align:center;
-}
+    h1 {
+        margin-bottom: 20px;
+    }
 
-h1{
-    margin-top:30px;
-    font-size:45px;
-    text-shadow:0 0 15px cyan;
-}
+    video {
+        width: 90%;
+        max-width: 500px;
+        border-radius: 15px;
+        border: 3px solid #00ffc3;
+        box-shadow: 0 0 20px rgba(0,255,195,0.4);
+        margin-bottom: 20px;
+    }
 
-p{
-    font-size:22px;
-}
+    .buttons {
+        display: flex;
+        gap: 10px;
+    }
 
-#score{
-    font-size:35px;
-    color:#00ffcc;
-}
+    button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
 
-.circle{
-    position:absolute;
-    width:90px;
-    height:90px;
-    background:radial-gradient(circle,#00ffcc,#0066ff);
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    user-select:none;
-    box-shadow:0 0 20px cyan;
-    transition:0.1s;
-}
+    .start {
+        background: #00ffc3;
+        color: #000;
+    }
 
-.circle:hover{
-    transform:scale(1.1);
-}
+    .stop {
+        background: #ff4d4d;
+        color: #fff;
+    }
 
+    button:hover {
+        transform: scale(1.05);
+    }
 </style>
 </head>
 
 <body>
 
-<h1>لعبة حسين حيدر 🎮</h1>
+<h1>🎥 كاميرا الويب</h1>
 
-<p>اضغط على الدوائر بسرعة واجمع النقاط!</p>
+<video id="video" autoplay playsinline></video>
 
-<div id="score">0</div>
-
-<script>
-
-let score = 0;
-
-function createCircle(){
-
-    let circle = document.createElement("div");
-
-    circle.className = "circle";
-
-    circle.innerHTML = "حسين حيدر";
-
-    circle.style.left =
-    Math.random() * (window.innerWidth - 100) + "px";
-
-    circle.style.top =
-    Math.random() * (window.innerHeight - 100) + "px";
-
-    document.body.appendChild(circle);
-
-    circle.onclick = function(){
-
-        score++;
-
-        document.getElementById("score").innerHTML =
-        "النقاط: " + score;
-
-        circle.remove();
-
-        createCircle();
-    }
-
-}
-
-createCircle();
-
-</script>
-
-</body>
-</html>    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.1);
-}
-
-.love{
-    position:absolute;
-    font-size:35px;
-    font-weight:bold;
-    animation:float 4s linear forwards;
-    user-select:none;
-    text-shadow:0 0 10px rgba(255,255,255,0.8);
-}
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0) scale(0.5) rotate(0deg);
-        opacity:0;
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(-300px) scale(1.5) rotate(360deg);
-        opacity:0;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<h1>اضغط وشوف المفاجأة ❤️</h1>
-
-<button onclick="showLove()">اضغط هنا</button>
-
-<script>
-
-const shapes = [
-    "احب منتهى ❤️",
-    "💖",
-    "💕",
-    "💘",
-    "🌸",
-    "✨",
-    "😍",
-    "❤️‍🔥"
-];
-
-function showLove(){
-
-    for(let i = 0; i < 25; i++){
-
-        let item = document.createElement("div");
-
-        item.className = "love";
-
-        item.innerHTML =
-        shapes[Math.floor(Math.random() * shapes.length)];
-
-        item.style.left =
-        Math.random() * window.innerWidth + "px";
-
-        item.style.top =
-        Math.random() * window.innerHeight + "px";
-
-        item.style.fontSize =
-        (25 + Math.random() * 30) + "px";
-
-        document.body.appendChild(item);
-
-        setTimeout(()=>{
-            item.remove();
-        },4000);
-    }
-
-}
-
-</script>
-
-</body>
-</html>}
-
-@keyframes fly{
-    0%{
-        transform:translateY(0);
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(-200px);
-        opacity:0;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<h1>اضغط الزر 😂</h1>
-
-<button onclick="showLove()">اضغط هنا</button>
-
-<script>
-
-function showLove(){
-
-    for(let i=0; i<10; i++){
-
-        let text = document.createElement("div");
-
-        text.innerHTML = "احب مصطفى ❤️";
-
-        text.className = "word";
-
-        text.style.left = Math.random() * window.innerWidth + "px";
-
-        text.style.top = Math.random() * window.innerHeight + "px";
-
-        document.body.appendChild(text);
-
-        setTimeout(()=>{
-            text.remove();
-        },2000);
-    }
-
-}
-
-</script>
-
-</body>
-</html>}
-
-@keyframes blink{
-    50%{
-        opacity:0;
-    }
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="box">
-
-<h1 class="blink">⚠ SYSTEM ALERT ⚠</h1>
-
-<p>
-تم اختراق النظام التجريبي بنجاح
-</p>
-
-<p>
-جارٍ فحص الملفات...
-</p>
-
-<p>
-جارٍ تشفير البيانات...
-</p>
-
-<p>
-HTML 😂
-</p>
-
+<div class="buttons">
+    <button class="start" onclick="startCamera()">تشغيل الكاميرا</button>
+    <button class="stop" onclick="stopCamera()">إيقاف الكاميرا</button>
 </div>
 
-</body>
-</html>
-</body>
-</html>}
+<script>
+let stream;
 
-button{
-    margin-top:20px;
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
-    background:#ff3b3b;
-    color:white;
-    cursor:pointer;
+function startCamera() {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    .then(s => {
+        stream = s;
+        document.getElementById("video").srcObject = stream;
+    })
+    .catch(err => {
+        alert("لم يتم السماح باستخدام الكاميرا");
+        console.log(err);
+    });
 }
 
-button:hover{
-    background:#ff1a1a;
+function stopCamera() {
+    if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+        document.getElementById("video").srcObject = null;
+    }
 }
-</style>
-
-</head>
-
-<body>
-
-<div class="box">
-    <h1>GAME SYSTEM</h1>
-    <p>واجهة<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>موقعي</title>
-</head>
-<body>
-
-    /h1>
+</script>
 
 </body>
 </html>
->/Full account> 
-></سحب الحساب كامل جيميل> 
